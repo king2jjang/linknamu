@@ -1,24 +1,28 @@
 import LinkCard from "@/components/LinkCard";
 import ProfileHeader from "@/components/ProfileHeader";
-import { BlogIcon, GithubIcon, LinkedInIcon } from "@/components/icons";
 
 const PROFILE = {
-  name: "김클로",
-  bio: "세계 최강 바이브코더",
+  name: "이병국",
+  bio: "풀스택 개발자 | 요즘에는 AI 개발에 관심이 많아요",
+  imageUrl: "/profile.jpg",
 };
 
 const LINKS = [
-  { href: "https://github.com", label: "GitHub", icon: <GithubIcon /> },
-  { href: "https://linkedin.com", label: "LinkedIn", icon: <LinkedInIcon /> },
-  { href: "https://example.com/blog", label: "Blog", icon: <BlogIcon /> },
+  { href: "https://github.com/king2jjang", label: "GitHub", icon: "💻" },
+  { href: "https://blog.naver.com/unibklee", label: "블로그", icon: "📝" },
+  { href: "mailto:unibklee@gmail.com", label: "이메일", icon: "📧" },
 ];
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen items-center justify-center bg-gray-50 px-4 py-16 dark:bg-gray-900">
-      <div className="mx-auto flex w-full max-w-sm flex-col items-center gap-10 text-center">
-        <ProfileHeader name={PROFILE.name} bio={PROFILE.bio} />
-        <div className="flex w-full flex-col gap-6">
+    <main className="flex min-h-screen items-center justify-center px-6 py-20 sm:py-28">
+      <div className="mx-auto flex w-full max-w-sm flex-col items-center gap-12 text-center">
+        <ProfileHeader
+          name={PROFILE.name}
+          bio={PROFILE.bio}
+          imageUrl={PROFILE.imageUrl}
+        />
+        <div className="flex w-full flex-col gap-5">
           {LINKS.map((link) => (
             <LinkCard
               key={link.label}

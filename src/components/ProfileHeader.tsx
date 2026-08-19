@@ -1,27 +1,26 @@
 type ProfileHeaderProps = {
   name: string;
   bio: string;
+  imageUrl: string;
 };
 
-export default function ProfileHeader({ name, bio }: ProfileHeaderProps) {
+export default function ProfileHeader({ name, bio, imageUrl }: ProfileHeaderProps) {
   return (
-    <header className="flex flex-col items-center gap-3 text-center">
-      <div
-        className="flex h-36 w-36 items-center justify-center rounded-full bg-gray-200 text-gray-400 dark:bg-gray-700 dark:text-gray-500"
-        aria-hidden
-      >
-        <svg
-          className="h-20 w-20"
-          fill="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.42 0-8 2.24-8 5v1a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-1c0-2.76-3.58-5-8-5Z" />
-        </svg>
+    <header className="flex flex-col items-center gap-4 text-center">
+      <div className="rounded-full bg-gradient-to-br from-white/90 to-orange-100/60 p-1.5 shadow-[0_12px_32px_-8px_rgba(196,120,60,0.45)]">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={imageUrl}
+          alt={`${name} 프로필 사진`}
+          className="h-32 w-32 rounded-full object-cover ring-1 ring-white/70 sm:h-36 sm:w-36"
+        />
       </div>
-      <h1 className="text-xl font-bold text-gray-900 dark:text-gray-100">
-        {name}
-      </h1>
-      <p className="text-sm text-gray-500 dark:text-gray-400">{bio}</p>
+      <div className="flex flex-col gap-1.5">
+        <h1 className="text-xl font-bold tracking-tight text-[#3f2f24]">
+          {name}
+        </h1>
+        <p className="text-sm text-[#8a7566]">{bio}</p>
+      </div>
     </header>
   );
 }
