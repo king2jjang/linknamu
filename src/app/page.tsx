@@ -1,4 +1,4 @@
-import LinkCard from "@/components/LinkCard";
+import LinkCardList from "@/components/LinkCardList";
 import ProfileHeader from "@/components/ProfileHeader";
 
 const PROFILE = {
@@ -8,9 +8,24 @@ const PROFILE = {
 };
 
 const LINKS = [
-  { href: "https://github.com/king2jjang", label: "GitHub", icon: "💻" },
-  { href: "https://blog.naver.com/unibklee", label: "블로그", icon: "📝" },
-  { href: "mailto:unibklee@gmail.com", label: "이메일", icon: "📧" },
+  {
+    id: "github",
+    href: "https://github.com/king2jjang",
+    label: "GitHub",
+    icon: "💻",
+  },
+  {
+    id: "blog",
+    href: "https://blog.naver.com/unibklee",
+    label: "블로그",
+    icon: "📝",
+  },
+  {
+    id: "email",
+    href: "mailto:unibklee@gmail.com",
+    label: "이메일",
+    icon: "📧",
+  },
 ];
 
 export default function Home() {
@@ -22,16 +37,7 @@ export default function Home() {
           bio={PROFILE.bio}
           imageUrl={PROFILE.imageUrl}
         />
-        <div className="flex w-full flex-col gap-5">
-          {LINKS.map((link) => (
-            <LinkCard
-              key={link.label}
-              href={link.href}
-              label={link.label}
-              icon={link.icon}
-            />
-          ))}
-        </div>
+        <LinkCardList links={LINKS} />
       </div>
     </main>
   );
